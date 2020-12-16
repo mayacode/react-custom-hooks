@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --ci --coverage && codecov",
-    "eslint": "eslint",
-    "pretiier": "prettier",
+    "lint": "eslint .",
+    "format": "npm run prettier -- --write",
+    "prettier": "prettier \"**/*.+(js|jsx|json)\"",
+    "validate": "npm run lint && npm run prettier -- --list-different",
     "precommit": "lint-staged",
     "test-dev": "jest --coverage"
   },
@@ -14,14 +16,6 @@
     "hooks": {
       "pre-commit": "npm run precommit"
     }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --quiet --fix"
-    ],
-    "*.{json,md,html}": [
-      "prettier --write"
-    ]
   },
   "repository": {
     "type": "git",
@@ -39,7 +33,11 @@
   "homepage": "https://github.com/mayacode/react-custom-hooks#readme",
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
     "@testing-library/react-hooks": "^3.7.0",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.15.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.0.0",

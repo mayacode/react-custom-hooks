@@ -13,16 +13,22 @@ describe('state hooks', () => {
       expect(typeof result.current.toggleOpen).toEqual('function');
     });
 
-    const cases = [[true, 'ala'], [false, ''], [true, 1], [false, NaN], [false, null]];
+    const cases = [
+      [true, 'ala'],
+      [false, ''],
+      [true, 1],
+      [false, NaN],
+      [false, null],
+    ];
 
-    describe("state initial value", () => {
+    describe('state initial value', () => {
       it.each(cases)(
-        "should be %p if hook was called with %p as argument",
+        'should be %p if hook was called with %p as argument',
         (expectedResult, arg) => {
           const { result } = renderHook(() => useOpen(arg));
 
           expect(result.current.opened).toEqual(expectedResult);
-        }
+        },
       );
     });
 
@@ -33,7 +39,7 @@ describe('state hooks', () => {
         expect(result.current.opened).toEqual(true);
 
         act(() => {
-          result.current.setClose()
+          result.current.setClose();
         });
 
         expect(result.current.opened).toEqual(false);
@@ -47,7 +53,7 @@ describe('state hooks', () => {
         expect(result.current.opened).toEqual(false);
 
         act(() => {
-          result.current.setOpen()
+          result.current.setOpen();
         });
 
         expect(result.current.opened).toEqual(true);
@@ -61,13 +67,13 @@ describe('state hooks', () => {
         expect(result.current.opened).toEqual(false);
 
         act(() => {
-          result.current.toggleOpen()
+          result.current.toggleOpen();
         });
 
         expect(result.current.opened).toEqual(true);
 
         act(() => {
-          result.current.toggleOpen()
+          result.current.toggleOpen();
         });
 
         expect(result.current.opened).toEqual(false);

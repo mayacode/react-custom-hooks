@@ -1,4 +1,4 @@
-const { useState } = require("react");
+const { useState } = require('react');
 
 function useOpen(initialState = false) {
   const [opened, setOpened] = useState(!!initialState);
@@ -20,9 +20,9 @@ function useOpen(initialState = false) {
     setOpen,
     setClose,
     toggleOpen,
-  }
+  };
 }
 
 module.exports = {
   useOpen,
-}
+};
