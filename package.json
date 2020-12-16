@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --ci --coverage && codecov",
+    "publish-tests": "jest",
+    "publish": "np --test-script=publish-tests",
     "lint": "eslint .",
     "format": "npm run prettier -- --write",
     "prettier": "prettier \"**/*.+(js|jsx|json)\"",
