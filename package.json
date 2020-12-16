@@ -1,0 +1,59 @@
+{
+  "name": "@mayacode/react-custom-hooks",
+  "version": "1.0.0",
+  "description": "test package for custom react hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --ci --coverage && codecov",
+    "lint": "eslint .",
+    "format": "npm run prettier -- --write",
+    "prettier": "prettier \"**/*.+(js|jsx|json)\"",
+    "validate": "npm run lint && npm run prettier -- --list-different",
+    "precommit": "lint-staged",
+    "test-dev": "jest --coverage"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayacode/react-custom-hooks.git"
+  },
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "author": "Maja Miarecki <maja.miarecki@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mayacode/react-custom-hooks/issues"
+  },
+  "homepage": "https://github.com/mayacode/react-custom-hooks#readme",
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@testing-library/react-hooks": "^3.7.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.6",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
