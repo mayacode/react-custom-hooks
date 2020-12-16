@@ -19,6 +19,9 @@
       "pre-commit": "npm run precommit"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mayacode/react-custom-hooks.git"
