@@ -1,12 +1,12 @@
 {
   "name": "@mayacode/react-custom-hooks",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "test package for custom react hooks",
   "main": "index.js",
   "scripts": {
     "test": "jest --ci --coverage && codecov",
-    "publish-tests": "jest",
-    "publish": "np --test-script=publish-tests",
+    "release-tests": "jest",
+    "release": "np --test-script=release-tests",
     "lint": "eslint .",
     "format": "npm run prettier -- --write",
     "prettier": "prettier \"**/*.+(js|jsx|json)\"",
