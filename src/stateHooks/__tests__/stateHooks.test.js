@@ -86,10 +86,10 @@ describe('state hooks', () => {
 
         expect(result.current.elementRef).toEqual(null);
 
-        const initialAnchorEl = { a: 1 };
-        const { result: result2 } = renderHook(() => useActive({ initialAnchorEl }));
+        const initialElementRef = { a: 1 };
+        const { result: result2 } = renderHook(() => useActive({ initialElementRef }));
 
-        expect(result2.current.elementRef).toEqual(initialAnchorEl);
+        expect(result2.current.elementRef).toEqual(initialElementRef);
       });
     });
 
@@ -110,11 +110,11 @@ describe('state hooks', () => {
 
     describe('', () => {
       it('', () => {
-        const initialAnchorEl = { a: 1 };
-        const { result } = renderHook(() => useActive({ initialAnchorEl }));
+        const initialElementRef = { a: 1 };
+        const { result } = renderHook(() => useActive({ initialElementRef }));
 
         expect(typeof result.current.clearElementRef).toEqual('function');
-        expect(result.current.elementRef).toEqual(initialAnchorEl);
+        expect(result.current.elementRef).toEqual(initialElementRef);
 
         act(() => {
           result.current.clearElementRef(event);

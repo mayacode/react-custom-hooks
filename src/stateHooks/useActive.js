@@ -1,30 +1,35 @@
 const { useState } = require('react');
 
 /**
- * @typedef {Object} useOpenReturnObject object returned by useOpen hook
+ * @typedef {Object} useActiveReturnType object returned by useActive hook
  * @property {boolean} activeState - state value
  * @property {function} setActive - function for setting activeState to true
  * @property {function} setInactive - function for setting activeState to false
  * @property {function} toggleActiveState - function for toggling activeState value
- * @property {object || null} elementRef - element with active action
+ * @property {(HTMLElement|null)} elementRef - element with active action
  * @property {function} setElementRef - function for setting ref
  * @property {function} clearElementRef - function for clearing ref
  */
 
 /**
+ * @typedef {Object} useActiveParam
+ * @property {any} initialActiveState - initial value of activeState
+ * @property {(HTMLElement|null)} initialElementRef - initial value of elementRef
+ * @default [{ initialActiveState: false, initialElementRef: null }]
+ */
+
+/**
  * react custom hook for managing elements which could be active/open or inactive/closed
  *
- * @param {boolean} initialState initial value of opened variable
- * @param initialAnchorEl
- * @default [false]
- * @returns {useOpenReturnObject}
+ * @param {useActiveParam}
+ * @returns {useActiveReturnType}
  */
 function useActive({
   initialActiveState = false,
-  initialAnchorEl = null
+  initialElementRef = null
 } = {}) {
   const [activeState, setIsActive] = useState(!!initialActiveState);
-  const [elementRef, setRef] = useState(initialAnchorEl);
+  const [elementRef, setRef] = useState(initialElementRef);
 
   function setElementRef(event) {
     event.preventDefault();
