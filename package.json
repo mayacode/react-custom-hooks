@@ -1,6 +1,6 @@
 {
   "name": "@mayacode/react-custom-hooks",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "set of often used custom react hooks",
   "main": "index.js",
   "scripts": {
