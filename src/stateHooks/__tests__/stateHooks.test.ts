@@ -1,8 +1,13 @@
-const { renderHook, act } = require('@testing-library/react-hooks');
+import { renderHook, act } from '@testing-library/react-hooks';
 
-const { useActive } = require('../useActive');
+import useActive from '../useActive';
 
-const cases = [
+interface Case {
+  [0]: boolean,
+  [1]: any,
+}
+
+const cases: Case[] = [
   [true, 'ala'],
   [false, ''],
   [true, 1],
@@ -86,7 +91,7 @@ describe('state hooks', () => {
 
         expect(result.current.elementRef).toEqual(null);
 
-        const initialElementRef = { a: 1 };
+        const initialElementRef: EventTarget = document.createElement('div');
         const { result: result2 } = renderHook(() => useActive({ initialElementRef }));
 
         expect(result2.current.elementRef).toEqual(initialElementRef);
