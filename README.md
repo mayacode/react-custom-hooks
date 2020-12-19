@@ -2,7 +2,7 @@
 
 A set of useful custom react hooks.
 
-###Problem
+### Problem
 
 Writing applications requires using similar code
 over and over again. Partially we cover it using libraries,
@@ -10,7 +10,7 @@ but some elements we write in every project. For example
 maintaining state of modal windows, opened menus, changed
 form fields.
 
-###Solution
+### Solution
 
 This package gathers already existing hooks which were used
 in many projects. 
