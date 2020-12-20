@@ -1,8 +1,13 @@
 {
   "name": "@mayacode/react-custom-hooks",
+  "sideEffects": false,
   "version": "1.1.2",
   "description": "set of often used custom react hooks",
-  "main": "index.ts",
+  "main": "build/bundle.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "test": "jest --ci --coverage && codecov",
     "release-tests": "jest",
@@ -14,7 +19,8 @@
     "validate": "npm run lint && npm run prettier -- --list-different",
     "precommit": "lint-staged",
     "test-dev": "jest --coverage",
-    "build": "webpack"
+    "build": "webpack --mode=production",
+    "prepublish": "tsc"
   },
   "husky": {
     "hooks": {

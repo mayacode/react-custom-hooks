@@ -11,5 +11,12 @@
   },
   "include": [
     "index.ts"
-  ]
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "coverage",
+    "out"
+  ],
+  "declaration": true
 }
