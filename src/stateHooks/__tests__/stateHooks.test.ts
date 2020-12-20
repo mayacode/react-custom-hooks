@@ -1,6 +1,7 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 
 import useActive from '../useActive';
+import {MouseEvent} from "react";
 
 interface Case {
   [0]: boolean,
@@ -15,8 +16,10 @@ const cases: Case[] = [
   [false, null],
 ];
 
-const event = {
-  currentTarget: { a: 1 },
+const currentTarget: HTMLElement = document.createElement('div');
+
+const event: MouseEvent<HTMLElement> = {
+  currentTarget: currentTarget,
   preventDefault: jest.fn(),
   stopPropagation: jest.fn(),
 };
@@ -91,10 +94,10 @@ describe('state hooks', () => {
 
         expect(result.current.elementRef).toEqual(null);
 
-        const initialElementRef: EventTarget = document.createElement('div');
-        const { result: result2 } = renderHook(() => useActive({ initialElementRef }));
 
-        expect(result2.current.elementRef).toEqual(initialElementRef);
+        const { result: result2 } = renderHook(() => useActive({ initialElementRef: currentTarget }));
+
+        expect(result2.current.elementRef).toEqual(currentTarget);
       });
     });
 
@@ -115,11 +118,10 @@ describe('state hooks', () => {
 
     describe('', () => {
       it('', () => {
-        const initialElementRef = { a: 1 };
-        const { result } = renderHook(() => useActive({ initialElementRef }));
+        const { result } = renderHook(() => useActive({ initialElementRef: currentTarget }));
 
         expect(typeof result.current.clearElementRef).toEqual('function');
-        expect(result.current.elementRef).toEqual(initialElementRef);
+        expect(result.current.elementRef).toEqual(currentTarget);
 
         act(() => {
           result.current.clearElementRef(event);
