@@ -1,10 +1,9 @@
 const path = require("path");
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   entry: "./index.ts",
   target: "web",
-  mode: "development",
+  mode: "production",
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
@@ -24,18 +23,6 @@ module.exports = {
         test: /\.js$/,
         loader: "source-map-loader",
       },
-      // {
-      //   test: /\.css$/,
-      //   loader: "css-loader",
-      // },
     ],
   },
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     template: path.resolve(__dirname, "src", "components", "index.html"),
-  //   }),
-  //   new MiniCssExtractPlugin({
-  //     filename: "./src/yourfile.css",
-  //   }),
-  // ],
 };
