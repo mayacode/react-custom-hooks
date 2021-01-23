@@ -3,10 +3,10 @@
   "sideEffects": false,
   "version": "1.1.4",
   "description": "set of often used custom react hooks",
-  "main": "build/bundle.js",
+  "main": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
-    "build"
+    "build/index.js"
   ],
   "scripts": {
     "test": "jest --ci --coverage && codecov",
